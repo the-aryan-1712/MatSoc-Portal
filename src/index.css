@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 248 243;    /* Soft warm white #fff8f3 */
+    --foreground: 40 25 20;       /* Very dark warm gray */
+    --primary: 200 90 50;         /* Rustic Orange #C85A32 */
+    --primary-hover: 175 75 40;   /* Darker rustic orange */
+    --secondary: 245 235 225;     /* Warm light gray */
+    --accent: 230 130 90;         /* Soft vibrant orange */
+  }
+  
+  .dark {
+    --background: 32 28 25;       /* Warm charcoal dark #201c19 */
+    --foreground: 250 245 240;    /* Warm off-white */
+    --primary: 220 110 70;        /* Brighter rustic orange */
+    --primary-hover: 240 130 90; 
+    --secondary: 52 46 42;        /* Warm dark card background */
+    --accent: 245 155 115;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+  }
+  ::selection {
+    @apply bg-primary/30;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 rounded-full hover:bg-primary/80 transition-colors;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/40 dark:bg-black/20 backdrop-blur-lg border border-primary/40 dark:border-primary/20 shadow-lg;
+}
