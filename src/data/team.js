@@ -32,7 +32,7 @@ export const team = [
         id: "c1",
         name: "Aryan Chaturvedi",
         role: "Events and Outreach",
-        image: "/public/team/manager_aryan.jpeg",
+        image: "/team/manager_aryan.jpeg",
         linkedin: "www.linkedin.com/in/aryan-chaturvedi-a84560206",
       },
       {
