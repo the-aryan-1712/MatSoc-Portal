@@ -4,34 +4,69 @@ export const team = [
     members: [
       {
         id: "f1",
-        name: "Dr. Elena Rostova",
-        role: "Head of Materials Dept",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
-        linkedin: "https://linkedin.com",
-      }
-    ]
-  },
-  {
-    category: "Core Team",
-    members: [
-      {
-        id: "c1",
-        name: "Alex Johnson",
-        role: "President",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+        name: "Prof. Monica Katiyar",
+        role: "Professor, Dept. of Materials Science and Engineering",
+        image: "https://www.iitk.ac.in/data/media/faculty/Monica-Katiyar.jpg",
         linkedin: "https://linkedin.com",
       },
       {
-        id: "c2",
-        name: "Sarah Williams",
-        role: "Vice President",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+        id: "f2",
+        name: "Prof. Srinu Gangolu",
+        role: "Associate Professor, Department of Materials Science and Engineering",
+        image: "https://www.iitk.ac.in/data/media/faculty/srinu-gangolu.jpg",
+        linkedin: "https://linkedin.com",
+      },
+      {
+        id: "f3",
+        name: "Prof. Shivam Tripathi",
+        role: "Assistant Professor,  Department of Materials Science and Engineering ",
+        image: "https://www.iitk.ac.in/data/media/faculty/shivam-tripathi-min.jpg",
         linkedin: "https://linkedin.com",
       }
     ]
   },
   {
-    category: "Coordinators",
+    category: "Managers",
+    members: [
+      {
+        id: "c1",
+        name: "Aryan Chaturvedi",
+        role: "Events and Outreach",
+        image: "/public/team/manager_aryan.jpeg",
+        linkedin: "www.linkedin.com/in/aryan-chaturvedi-a84560206",
+      },
+      {
+        id: "c2",
+        name: "Basudev Mohapatra",
+        role: "Events and Outreach",
+        image: "https://media.licdn.com/dms/image/v2/D4D03AQH2msEC36FrEg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701337828364?e=1776297600&v=beta&t=ldEG9WnIO1YnEb0Mt5e6Ok4A3HQImyDNrwXfrxA2uQY",
+        linkedin: "https://www.linkedin.com/in/basudev-mohapatra-44131b293/",
+      },
+      {
+        id: "c3",
+        name: "Pathak Prince",
+        role: "Events and Outreach",
+        image: "",
+        linkedin: "www.linkedin.com/in/aryan-chaturvedi-a84560206",
+      },
+      {
+        id: "c4",
+        name: "Aarush Singh",
+        role: "Events and Outreach",
+        image: "",
+        linkedin: "www.linkedin.com/in/aryan-chaturvedi-a84560206",
+      },
+      {
+        id: "c5",
+        name: "Harsh Maheshwari",
+        role: "Events and Outreach",
+        image: "",
+        linkedin: "www.linkedin.com/in/aryan-chaturvedi-a84560206",
+      }
+    ]
+  },
+  {
+    category: "Secretaries",
     members: [
       {
         id: "co1",
