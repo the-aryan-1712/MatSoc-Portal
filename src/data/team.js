@@ -68,20 +68,13 @@ export const team = [
   {
     category: "Secretaries",
     members: [
-      {
-        id: "co1",
-        name: "Michael Chen",
-        role: "Events Coordinator",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-        linkedin: "https://linkedin.com",
-      },
-      {
-        id: "co2",
-        name: "Priya Patel",
-        role: "PR & Design",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
-        linkedin: "https://linkedin.com",
-      }
+      { id: "s1", name: "Akshada Bhagwat", role: "Secretary" },
+      { id: "s2", name: "Aaditya Mukherjee", role: "Secretary" },
+      { id: "s3", name: "Ishika Gupta", role: "Secretary" },
+      { id: "s4", name: "Sanidhya Asati", role: "Secretary" },
+      { id: "s5", name: "Akshat Mittal", role: "Secretary" },
+      { id: "s6", name: "Rudra", role: "Secretary" },
+      { id: "s7", name: "Saatwik", role: "Secretary" }
     ]
   }
 ];
