@@ -61,6 +61,7 @@ export default function Team() {
                           alt={member.name}
                           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300 z-20 flex justify-end">
                           <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary rounded-full text-white backdrop-blur-sm transition-colors">
