@@ -11,8 +11,10 @@ export const resources = [
     id: "r2",
     category: "Presentations",
     items: [
-      { title: "Nanomaterials Seminar 2025", type: "PPTX", size: "15.6 MB", link: "#" },
-      { title: "Polymer Matrix Composites", type: "PPTX", size: "8.2 MB", link: "#" }
+      { title: "Internship Session 2026 - SDE", type: "PPTX", size: "15.6 MB", link: "https://drive.google.com/file/d/1Q2chXcl4a-LLtj3hoEHocPF-RSgGEA_B/view?usp=drive_link" },
+      { title: "Internship Session 2026 - SDE", type: "PPTX", size: "8.2 MB", link: "https://drive.google.com/file/d/1dEne7NnBnJEGJ0L8gUTA3LlydFzD00jp/view?usp=drive_link" },
+      { title: "Internship Session 2026 - MSE Core", type: "PPTX", size: "8.2 MB", link: "https://drive.google.com/file/d/1masaoZgPUH6ILmPQxHL2-g28OeQwqWsG/view?usp=drive_link" },
+      { title: "Internship Session 2026 - Data Science and Finance", type: "PPTX", size: "8.2 MB", link: "https://docs.google.com/presentation/d/1W2OsXxXvqN5LEgSf3pqdixdv6Pb5TOnQ/edit?usp=drive_link&ouid=111463894265740543808&rtpof=true&sd=true" }
     ]
   },
   {

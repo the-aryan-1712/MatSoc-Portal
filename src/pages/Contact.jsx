@@ -40,21 +40,21 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-lg">Location</h4>
                     <p className="text-foreground/70 leading-relaxed">
-                      Materials Engineering Dept.<br />
-                      University of Innovation<br />
-                      Tech Valley, CA 94000
+                      Room No.413, 4th Floor,<br />
+                      Faculty Building,<br />
+                      IIT Kanpur, 208016
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mr-4">
                     <Mail />
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
-                    <a href="mailto:info@matsoc.edu" className="text-foreground/70 hover:text-primary transition-colors">
-                      info@matsoc.edu
+                    <a href="mailto:matsoc@iitk.ac.in" className="text-foreground/70 hover:text-primary transition-colors">
+                      matsoc@iitk.ac.in
                     </a>
                   </div>
                 </div>
@@ -65,8 +65,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Phone</h4>
-                    <a href="tel:+1234567890" className="text-foreground/70 hover:text-primary transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+91-8738932371" className="text-foreground/70 hover:text-primary transition-colors">
+                      +91-8738932371
                     </a>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function Contact() {
           >
             {/* Form glowing effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full filter blur-[60px] pointer-events-none"></div>
-            
+
             <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -110,7 +110,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground/80">Subject</label>
                 <input
@@ -122,7 +122,7 @@ export default function Contact() {
                   required
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground/80">Message</label>
                 <textarea
@@ -134,7 +134,7 @@ export default function Contact() {
                   required
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="inline-flex justify-center items-center w-full px-6 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all duration-300"

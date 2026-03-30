@@ -5,11 +5,29 @@ import { resources } from '../data/resources';
 
 export default function Resources() {
   const getFileIcon = (type) => {
-    switch(type) {
+    switch (type) {
       case 'PDF': return <FileText className="w-8 h-8 text-red-400" />;
       case 'PPTX': return <FileArchive className="w-8 h-8 text-orange-400" />;
       default: return <FileText className="w-8 h-8 text-primary" />;
     }
+  };
+
+  const getDownloadLink = (url) => {
+    if (!url || url === '#') return '#';
+
+    // Handle standard Google Drive file links
+    const driveMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)\//);
+    if (driveMatch && driveMatch[1]) {
+      return `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`;
+    }
+
+    // Handle Google Docs/Slides links
+    const docsMatch = url.match(/\/presentation\/d\/([a-zA-Z0-9_-]+)\//);
+    if (docsMatch && docsMatch[1]) {
+      return `https://docs.google.com/presentation/d/${docsMatch[1]}/export/pptx`;
+    }
+
+    return url;
   };
 
   return (
@@ -44,7 +62,7 @@ export default function Resources() {
               <ul className="space-y-4 flex-1">
                 {category.items.map((item, i) => (
                   <li key={i} className="group relative">
-                    <a href={item.link} className="flex items-center p-3 rounded-xl bg-foreground/5 hover:bg-primary/10 transition-colors border border-transparent hover:border-primary/20">
+                    <a href={getDownloadLink(item.link)} download target="_blank" rel="noopener noreferrer" className="flex items-center p-3 rounded-xl bg-foreground/5 hover:bg-primary/10 transition-colors border border-transparent hover:border-primary/20">
                       <div className="mr-4 group-hover:scale-110 transition-transform">
                         {getFileIcon(item.type)}
                       </div>
