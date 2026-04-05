@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Moon, Sun } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -7,18 +7,18 @@ export default function ThemeToggle() {
   useEffect(() => {
     // Default to dark mode to match Discord aesthetic
     setIsDark(true);
-    document.documentElement.classList.add('dark');
-    localStorage.theme = 'dark';
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
   }, []);
 
   const toggleTheme = () => {
     if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
       setIsDark(false);
     } else {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
       setIsDark(true);
     }
   };

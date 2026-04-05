@@ -1,14 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Bell, Award, Users } from 'lucide-react';
-import { news } from '../data/news';
+import React from "react";
+import { motion } from "framer-motion";
+import { Bell, Award, Users } from "lucide-react";
+import { news } from "../data/news";
 
 export default function News() {
   const getIcon = (tag) => {
-    switch(tag.toLowerCase()) {
-      case 'achievement': return <Award className="w-5 h-5 text-accent" />;
-      case 'collaboration': return <Users className="w-5 h-5 text-orange-500" />;
-      default: return <Bell className="w-5 h-5 text-primary" />;
+    switch (tag.toLowerCase()) {
+      case "achievement":
+        return <Award className="w-5 h-5 text-accent" />;
+      case "collaboration":
+        return <Users className="w-5 h-5 text-orange-500" />;
+      default:
+        return <Bell className="w-5 h-5 text-primary" />;
     }
   };
 
@@ -36,14 +39,16 @@ export default function News() {
               key={item.id}
               initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className={`relative flex items-center ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              className={`relative flex items-center ${idx % 2 === 0 ? "md:flex-row-reverse" : ""}`}
             >
               {/* Timeline dot */}
               <div className="absolute -left-[9px] md:left-1/2 md:-ml-[9px] w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg z-10"></div>
-              
-              <div className={`pl-8 md:pl-0 md:w-1/2 ${idx % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} w-full`}>
+
+              <div
+                className={`pl-8 md:pl-0 md:w-1/2 ${idx % 2 === 0 ? "md:pl-12" : "md:pr-12"} w-full`}
+              >
                 <div className="glass p-6 rounded-2xl relative group hover:-translate-y-1 transition-transform duration-300">
                   <div className="absolute top-6 right-6 opacity-20 group-hover:opacity-100 transition-opacity group-hover:scale-110 duration-300">
                     {getIcon(item.tag)}

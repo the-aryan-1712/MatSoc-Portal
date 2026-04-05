@@ -20,10 +20,11 @@ export const team = [
         id: "f3",
         name: "Prof. Shivam Tripathi",
         role: "Assistant Professor,  Department of Materials Science and Engineering ",
-        image: "https://www.iitk.ac.in/data/media/faculty/shivam-tripathi-min.jpg",
+        image:
+          "https://www.iitk.ac.in/data/media/faculty/shivam-tripathi-min.jpg",
         linkedin: "https://linkedin.com",
-      }
-    ]
+      },
+    ],
   },
   {
     category: "Managers",
@@ -62,8 +63,8 @@ export const team = [
         role: "Events and Outreach",
         image: "/team/harsh.jpeg",
         linkedin: "https://www.linkedin.com/in/harshmaheshwari18/",
-      }
-    ]
+      },
+    ],
   },
   {
     category: "Secretaries",
@@ -74,7 +75,7 @@ export const team = [
       { id: "s4", name: "Sanidhya Asati", role: "Secretary" },
       { id: "s5", name: "Akshat Mittal", role: "Secretary" },
       { id: "s6", name: "Rudra", role: "Secretary" },
-      { id: "s7", name: "Saatwik", role: "Secretary" }
-    ]
-  }
+      { id: "s7", name: "Saatwik", role: "Secretary" },
+    ],
+  },
 ];

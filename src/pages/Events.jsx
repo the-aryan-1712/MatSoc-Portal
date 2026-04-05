@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, X, ArrowRight } from 'lucide-react';
-import { events } from '../data/events';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, X, ArrowRight } from "lucide-react";
+import { events } from "../data/events";
 
 export default function Events() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -9,11 +9,32 @@ export default function Events() {
   // Stop body scroll when modal is open
   React.useEffect(() => {
     if (selectedEvent) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
   }, [selectedEvent]);
+
+  const getGoogleCalendarUrl = (event) => {
+    if (!event) return "#";
+    const title = encodeURIComponent(event.title);
+    const details = encodeURIComponent(event.description.substring(0, 1000));
+    const startStr = event.date.replace(/-/g, "");
+    const endStr = event.endDate ? event.endDate.replace(/-/g, "") : startStr;
+    const dates = event.endDate ? `${startStr}T100000Z/${endStr}T170000Z` : `${startStr}T100000Z/${startStr}T120000Z`;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&dates=${dates}`;
+  };
+
+  const formatEventDate = (ev) => {
+    if (!ev || !ev.date) return "";
+    const opts = { month: "long", day: "numeric" };
+    const start = new Date(ev.date).toLocaleDateString("en-US", opts);
+    if (ev.endDate) {
+      const end = new Date(ev.endDate).toLocaleDateString("en-US", { ...opts, year: "numeric" });
+      return `${start} - ${end}`;
+    }
+    return new Date(ev.date).toLocaleDateString("en-US", { ...opts, year: "numeric" });
+  };
 
   return (
     <section id="events" className="py-24 relative">
@@ -30,7 +51,7 @@ export default function Events() {
               Featured Events
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl">
-              Join us for our upcoming workshops, symposiums, and networking sessions.
+              Join us for interesting competitions, symposiums, and other events.
             </p>
           </div>
         </motion.div>
@@ -49,20 +70,24 @@ export default function Events() {
             >
               <div className="h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:opacity-0 transition-opacity z-10"></div>
-                <img 
-                  src={event.image} 
-                  alt={event.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center text-primary text-sm font-medium mb-3">
                   <Calendar className="w-4 h-4 mr-2" />
-                  {new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  {formatEventDate(event)}
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{event.title}</h3>
-                <p className="text-foreground/70 mb-4 flex-1">{event.description.substring(0, 100)}...</p>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  {event.title}
+                </h3>
+                <p className="text-foreground/70 mb-4 flex-1">
+                  {event.description.substring(0, 100)}...
+                </p>
                 <button className="text-accent hover:text-primary font-medium flex items-center transition-colors mt-auto">
                   View Details
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -89,28 +114,34 @@ export default function Events() {
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="glass bg-background/95 max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl overflow-hidden shadow-2xl relative"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setSelectedEvent(null)}
                 className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
               >
                 <X size={20} />
               </button>
               <div className="h-64 sm:h-80 relative">
-                <img src={selectedEvent.image} alt={selectedEvent.title} className="w-full h-full object-cover" />
+                <img
+                  src={selectedEvent.image}
+                  alt={selectedEvent.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
               </div>
               <div className="p-8 -mt-20 relative z-10">
                 <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-4 backdrop-blur-md border border-primary/20">
                   <Calendar className="w-4 h-4 mr-2" />
-                  {new Date(selectedEvent.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  {formatEventDate(selectedEvent)}
                 </div>
-                <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">{selectedEvent.title}</h2>
+                <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
+                  {selectedEvent.title}
+                </h2>
                 <p className="text-lg text-foreground/80 leading-relaxed mb-8">
                   {selectedEvent.description}
                 </p>
-                
+
                 <h4 className="text-xl font-bold mb-4 flex items-center">
                   Key Highlights
                 </h4>
@@ -124,12 +155,24 @@ export default function Events() {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/10">
-                  <a href={selectedEvent.link} className="flex-1 text-center py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 transition-all">
-                    Register Now
-                  </a>
-                  <a href="#" className="flex-1 text-center py-3 glass rounded-xl font-medium hover:bg-white/5 transition-all">
+                  {selectedEvent.link !== "#" && (
+                    <a
+                      href={selectedEvent.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 transition-all"
+                    >
+                      Register Now
+                    </a>
+                  )}
+                  <a
+                    href={getGoogleCalendarUrl(selectedEvent)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-3 glass rounded-xl font-medium hover:bg-white/5 transition-all"
+                  >
                     Add to Calendar
                   </a>
                 </div>

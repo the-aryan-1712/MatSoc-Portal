@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Events from './pages/Events';
-import Gallery from './pages/Gallery';
-import Team from './pages/Team';
-import News from './pages/News';
-import Resources from './pages/Resources';
-import Contact from './pages/Contact';
-import Footer from './components/Footer';
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import Team from "./pages/Team";
+import News from "./pages/News";
+import Resources from "./pages/Resources";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 // Helper to scroll to top on route change
 function ScrollToTop() {
@@ -33,51 +38,112 @@ function Home() {
 
 // Wrapper for subpages to avoid overlap with sticky navbar
 function PageWrapper({ children }) {
-  return (
-    <div className="pt-24 pb-12 min-h-[70vh]">
-      {children}
-    </div>
-  );
+  return <div className="pt-24 pb-12 min-h-[70vh]">{children}</div>;
 }
 
 // The core routing mechanism
 function AnimatedRoutes() {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><Home /></motion.div>} />
-        <Route path="/events" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><Events /></PageWrapper>
-          </motion.div>
-        } />
-        <Route path="/gallery" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><Gallery /></PageWrapper>
-          </motion.div>
-        } />
-        <Route path="/team" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><Team /></PageWrapper>
-          </motion.div>
-        } />
-        <Route path="/news" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><News /></PageWrapper>
-          </motion.div>
-        } />
-        <Route path="/resources" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><Resources /></PageWrapper>
-          </motion.div>
-        } />
-        <Route path="/contact" element={
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} exit={{opacity:0, y:-20}}>
-            <PageWrapper><Contact /></PageWrapper>
-          </motion.div>
-        } />
+        <Route
+          path="/"
+          element={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Home />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <Events />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <Gallery />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
+        <Route
+          path="/team"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <Team />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
+        <Route
+          path="/news"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <News />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
+        <Route
+          path="/resources"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <Resources />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <PageWrapper>
+                <Contact />
+              </PageWrapper>
+            </motion.div>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -113,22 +179,22 @@ function App() {
                 transition={{ duration: 0.5 }}
                 className="relative flex justify-center items-center mb-10"
               >
-                <img 
-                  src="/matsoc-logo-clean.png" 
-                  alt="MatSoc Logo" 
-                  className="h-16 md:h-24 w-auto object-contain transition-opacity duration-300 dark:opacity-100 opacity-0" 
+                <img
+                  src="/matsoc-logo-clean.png"
+                  alt="MatSoc Logo"
+                  className="h-16 md:h-24 w-auto object-contain transition-opacity duration-300 dark:opacity-100 opacity-0"
                 />
-                <div 
+                <div
                   className="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-accent dark:opacity-0 transition-opacity duration-300"
                   style={{
                     WebkitMaskImage: `url('/matsoc-logo-clean.png')`,
-                    WebkitMaskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
+                    WebkitMaskSize: "contain",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
                     maskImage: `url('/matsoc-logo-clean.png')`,
-                    maskSize: 'contain',
-                    maskRepeat: 'no-repeat',
-                    maskPosition: 'center'
+                    maskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    maskPosition: "center",
                   }}
                 />
               </motion.div>
