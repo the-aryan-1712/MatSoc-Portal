@@ -157,7 +157,14 @@ export default function Events() {
                 </ul>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/10">
-                  {selectedEvent.link !== "#" && (
+                  {selectedEvent.registrationClosed ? (
+                    <button
+                      disabled
+                      className="flex-1 text-center py-3 bg-gray-500/30 text-white/60 rounded-xl font-medium cursor-not-allowed border border-white/10"
+                    >
+                      Registration Closed
+                    </button>
+                  ) : selectedEvent.link !== "#" ? (
                     <a
                       href={selectedEvent.link}
                       target="_blank"
@@ -166,7 +173,19 @@ export default function Events() {
                     >
                       Register Now
                     </a>
+                  ) : null}
+
+                  {selectedEvent.psLink && (
+                    <a
+                      href={selectedEvent.psLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center py-3 bg-accent text-white rounded-xl font-medium hover:bg-orange-500 shadow-lg hover:shadow-accent/30 transition-all"
+                    >
+                      Download Problem Statement
+                    </a>
                   )}
+
                   <a
                     href={getGoogleCalendarUrl(selectedEvent)}
                     target="_blank"
