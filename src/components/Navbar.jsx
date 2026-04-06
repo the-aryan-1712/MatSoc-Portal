@@ -14,7 +14,7 @@ const navItems = [
         title: "Discover",
         links: [
           { name: "Events", href: "/events" },
-          { name: "Gallery Archive", href: "/gallery" },
+          { name: "Gallery Archive", href: "#" },
         ],
       },
     ],
@@ -32,7 +32,7 @@ const navItems = [
       {
         title: "Updates",
         links: [
-          { name: "Achievements", href: "/news" },
+          { name: "Achievements", href: "#" },
         ],
       },
     ],
